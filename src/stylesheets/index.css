@@ -22,11 +22,11 @@ a-scene{
     height: 100px;
     width: 100px;
     background-color: transparent;
-    border: solid black;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
+    top:10px;
 }
 
 .direction img{

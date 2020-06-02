@@ -47,10 +47,9 @@ function loadDirectionFromAPIs(position) {
 };
 
 
-window.onload = () => {
+function func1() {
     
 
-    const scene = document.querySelector('a-scene');
     const directions={
         0 : 'top:50%;left:50%;translate:transform(-50%,-50%);',
         1 : 'top:0;',
