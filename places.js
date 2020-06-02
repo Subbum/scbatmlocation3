@@ -51,10 +51,11 @@ function loadPlaceFromAPIs(position) {
 
 
 function func2() {
+
     
 
     const scene = document.querySelector('a-scene');
-    console.log(scene)
+    // console.log(scene)
 
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
@@ -63,7 +64,7 @@ function func2() {
         loadPlaces(position.coords)
             .then((places) => {
                 places.forEach((place) => {
-                    console.log(place)
+                    // console.log(place)
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;
                     // add place name
@@ -86,7 +87,7 @@ function func2() {
                         //     window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                         // });
 
-                        console.log(text);
+                        // console.log(text);
                         scene.appendChild(text);
                         // scene.appendChild(imgtext);
                     // }

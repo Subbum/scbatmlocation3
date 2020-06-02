@@ -48,19 +48,8 @@ function loadDirectionFromAPIs(position) {
 
 
 function func1() {
-    
 
-    const directions={
-        0 : 'top:50%;left:50%;translate:transform(-50%,-50%);',
-        1 : 'top:0;',
-        2 : 'top:0;left:0;',
-        3 : 'top:0;right:0;',
-        4 : 'bottom:0;',
-        5 : 'bottom:0;left:0;',
-        6 : 'bottom:0;right:0;',
-        7 : 'left:0;',
-        8 : 'right:0;',
-    }
+    console.log('tick')
 
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
@@ -69,9 +58,9 @@ function func1() {
         loadDirections(position.coords)
             .then((places) => {
                 var val = places[0].direction
-                console.log(val);
+                // console.log(val);
                 if(val == '6'){
-                    console.log('hello')
+                    // console.log('hello')
                     $('#arrow').css({
                         'transform': "rotate(45deg)",
                     });
@@ -133,3 +122,5 @@ function func1() {
 
 
 };
+
+setInterval(func1,5000);
