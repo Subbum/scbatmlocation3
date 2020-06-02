@@ -2,6 +2,38 @@ span {
     margin-right: 0.5em;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a-scene{
+    z-index: 100;
+}
+
+.camerastat{
+    height: 100%;
+    width: 100%;
+}
+
+.direction{
+    height: 100px;
+    width: 100px;
+    background-color: transparent;
+    border: solid black;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.direction img{
+    height: 40%;
+    width: 40%;
+}
+
 div.debug {
     position: fixed;
     bottom: 20px;

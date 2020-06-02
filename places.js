@@ -35,7 +35,7 @@ function loadPlaceFromAPIs(position) {
         &radius=${params.radius}
         &client_id=${params.clientId}
         &client_secret=${params.clientSecret}
-        &limit=15
+        &limit=10
         &v=${params.version}`;
     return fetch(endpoint)
         .then((res) => {
@@ -51,6 +51,8 @@ function loadPlaceFromAPIs(position) {
 
 
 window.onload = () => {
+    
+
     const scene = document.querySelector('a-scene');
 
     // first get current user location
@@ -64,18 +66,26 @@ window.onload = () => {
                     const longitude = place.location.lng;
                     // add place name
                     // if((place.name).toString().includes('Nahar')){ //Testing to get certain locations
-                        console.log('location')
                         const text = document.createElement('a-link');
                         text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                         text.setAttribute('title', place.name + ' ' + place.location.distance + ' meters');
-                        text.setAttribute('href', '');
                         text.setAttribute('scale', '20 20 20');
-
+                        text.setAttribute('id', place.location.lat + ',' + place.location.lng)
+                        text.setAttribute('class', 'maplink')
                         text.addEventListener('loaded', () => {
                             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                         });
 
+                        // const imgtext = document.createElement('a-link');
+                        // imgtext.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+                        // imgtext.setAttribute('title', place.name + ' ' + place.location.distance + ' meters');
+                        // imgtext.setAttribute('scale', '10 10 10');
+                        // imgtext.addEventListener('loaded', () => {
+                        //     window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+                        // });
+
                         scene.appendChild(text);
+                        // scene.appendChild(imgtext);
                     // }
                     // else{}
                 });
@@ -88,4 +98,7 @@ window.onload = () => {
             timeout: 27000,
         }
     );
+
+
+
 };
