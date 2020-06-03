@@ -28,11 +28,13 @@ function loadDirectionFromAPIs(position) {
         isFuzzed: false,
     };
 
+    var locate = $("#location").val();
+
     // Foursquare API
     const endpoint = `https://open.mapquestapi.com/directions/v2/route?key=${params.clientId}
     &latLng=${position.latitude},${position.longitude}
     &from=${position.latitude},${position.longitude}
-    &to=19.111597971385113,72.89660249116625
+    &to=${locate}
     `
     return fetch(endpoint)
         .then((res) => {
@@ -50,9 +52,12 @@ function loadDirectionFromAPIs(position) {
 function func1() {
 
     console.log('tick')
+    $('.direction').css({'display':'flex'})
 
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
+
+        console.log('here');
 
         // than use it to load from remote APIs some places nearby
         loadDirections(position.coords)
@@ -66,42 +71,42 @@ function func1() {
                     });
                 }
                 else if(val == '1'){
-                    $('.direction').css({
+                    $('#arrow').css({
                         'transform': "rotate(-90deg)",
                     }); 
                 }
                 else if(val == '2'){
-                    $('.direction').css({
+                    $('#arrow').css({
                         'transform': "rotate(225deg)",
                     }); 
                 }
                 else if(val == '3'){
-                    $('.direction').css({
+                    $('#arrow').css({
                         'transform': "rotate(-45deg)",
                     }); 
                 }
                 else if(val == '4'){
-                    $('.direction').css({
+                    $('#arrow').css({
                         'transform': "rotate(90deg)",
                     }); 
                 }
                 else if(val == '5'){
-                    $('.direction').css({
+                    $('#arrow').css({
                         'transform': "rotate(135deg)",
                     }); 
                 }
                 else if(val == '6'){
-                    $('.direction').css({
+                    $('#arrow').css({
                         'transform': "rotate(45deg)",
                     }); 
                 }
                 else if(val == '7'){
-                    $('.direction').css({
+                    $('#arrow').css({
                         'transform': "rotate(180deg)",
                     }); 
                 }
                 else if(val == '8'){
-                    $('.direction').css({
+                    $('#arrow').css({
                         'transform': "rotate(0deg)",
                     }); 
                 }
@@ -118,7 +123,6 @@ function func1() {
             timeout: 27000,
         }
     );
-
 
 
 };

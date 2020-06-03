@@ -50,7 +50,7 @@ function loadPlaceFromAPIs(position) {
 };
 
 
-function func2() {
+window.onload = function() {
 
     
 
@@ -86,6 +86,9 @@ function func2() {
                         // imgtext.addEventListener('loaded', () => {
                         //     window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                         // });
+
+                        daySelect = document.getElementById('location');
+                        daySelect.options[daySelect.options.length] = new Option(place.name, `${latitude},${longitude}`);
 
                         // console.log(text);
                         scene.appendChild(text);

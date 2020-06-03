@@ -23,11 +23,12 @@ a-scene{
     width: 100px;
     background-color: transparent;
     position: absolute;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     top:10px;
     transition: ease 1s;
+    flex-direction: column;
 }
 
 .direction img{
