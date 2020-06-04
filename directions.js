@@ -51,13 +51,13 @@ function loadDirectionFromAPIs(position) {
 
 function func1() {
 
-    console.log('tick')
+    // console.log('tick')
     $('.direction').css({'display':'flex'})
 
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
 
-        console.log('here');
+        // console.log('here');
 
         // than use it to load from remote APIs some places nearby
         loadDirections(position.coords)
