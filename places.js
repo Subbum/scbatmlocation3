@@ -1,3 +1,5 @@
+
+var perposition;
 const loadPlaces = function (coords) {
     // COMMENT FOLLOWING LINE IF YOU WANT TO USE STATIC DATA AND ADD COORDINATES IN THE FOLLOWING 'PLACES' ARRAY
     const method = 'api';
@@ -49,25 +51,11 @@ function loadPlaceFromAPIs(position) {
         })
 };
 
-var perposition;
-navigator.geolocation.getCurrentPosition(position => {
-    perposition = position;
-    console.log('local position is ', position)
-})
-
 window.onload = function() {
 
-    const scene = document.querySelector('a-scene');
-    // console.log(scene)
-
-    // first get current user location
-    
-
-    console.log('global position is ', perposition)
-    // navigator.geolocation.getCurrentPosition(function (position) {
-
-        // than use it to load from remote APIs some places nearby
-        loadPlaces(perposition.coords)
+    navigator.geolocation.getCurrentPosition(position => {
+        window.perposition = position;
+        loadPlaces(position.coords)
             .then((places) => {
                 places.forEach((place) => {
                     // console.log(place)
@@ -103,6 +91,25 @@ window.onload = function() {
                     // else{}
                 });
             })
+            return position.coords;
+    });
+    console.log(perposition)
+    // navigator.geolocation.getCurrentPosition(position => {
+    //     perposition = position;
+    //     console.log('local position is ', position)
+    // })
+
+    const scene = document.querySelector('a-scene');
+    // console.log(scene)
+
+    // first get current user location
+    
+
+    console.log('global position is ', perposition)
+    // navigator.geolocation.getCurrentPosition(function (position) {
+
+        // than use it to load from remote APIs some places nearby
+        
     /* },
         (err) => console.error('Error in retrieving position', err),
         {
@@ -252,5 +259,6 @@ function func1() {
     ); */
 
     // return setInterval(func1,5000);
+    
 
 };
