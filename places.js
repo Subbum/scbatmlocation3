@@ -149,13 +149,14 @@ function loadDirectionFromAPIs(position) {
 
     var locate = $("#location").val();
     console.log(locate);
+    console.log(position)
 
     // Foursquare API
     const endpoint = `https://open.mapquestapi.com/directions/v2/route?key=${params.clientId}
     &latLng=${position.latitude},${position.longitude}
     &from=${position.latitude},${position.longitude}
     &to=${locate}
-    &routeType=pedestrian
+    &ambiguities=ignore
     `
     console.log(endpoint)
     return fetch(endpoint)
@@ -188,6 +189,7 @@ function func1() {
         loadDirections(perposition.coords)
             .then((places) => {
                 var val = places[0].direction
+                document.getElementById('movement').innerHTML = `${places[0].narrative} for ${places[0].distance * 1609} meters`
                 // console.log(val);
                 if(val == '6'){
                     // console.log('hello')
@@ -249,5 +251,6 @@ function func1() {
         }
     ); */
 
+    // return setInterval(func1,5000);
 
 };

@@ -19,8 +19,8 @@ a-scene{
 }
 
 .direction{
-    height: 100px;
-    width: 100px;
+    height: 130px;
+    width: 130px;
     background-color: transparent;
     position: absolute;
     display: none;
@@ -29,11 +29,14 @@ a-scene{
     top:10px;
     transition: ease 1s;
     flex-direction: column;
+    text-align: center;
+    background-color: #0000006b;
+    color: white;
 }
 
 .direction img{
-    height: 40%;
-    width: 40%;
+    height: 30%;
+    width: 30%;
 }
 
 div.debug {
